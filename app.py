@@ -31,6 +31,7 @@ def find_digit():
     model = keras.models.load_model("conv_digit.h5")
     predict = np.argmax(model.predict(im2arr),axis=1)[0]
     print(predict)
+    keras.backend.clear_session()
     number = {'0':'Zero', '1': 'One', '2':'Two', '3':'Three', '4':'Four', '5':'Five', '6':'Six', '7':'Seven', '8':"Eight", '9':'Nine'}
     return jsonify(number=number[str(predict)])
 
