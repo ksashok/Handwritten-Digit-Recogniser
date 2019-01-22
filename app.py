@@ -34,4 +34,5 @@ def find_digit():
     print(predict)
     return jsonify(number=str(predict))
 
-app.run()
+if __name__ == '__main__':
+    app.run()
