@@ -35,8 +35,8 @@ const initTheCanvas = () => {
 
 const findPattern = () => {
     var dataURL = canvas.toDataURL();
-    const apiUrl = 'http://127.0.0.1:5000/digit'
-    //const apiUrl = 'https://digitfind.herokuapp.com/digit';
+    //const apiUrl = 'http://127.0.0.1:5000/digit'
+    const apiUrl = 'https://digitfind.herokuapp.com/digit';
     const apiData = {
         "image_url" : dataURL
     }
