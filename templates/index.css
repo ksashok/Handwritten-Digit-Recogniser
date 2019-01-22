@@ -1,0 +1,75 @@
+body::after {
+    content: "";
+    background: url('./assets/numbers.jpg');
+    opacity: 0.1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1; 
+}
+
+h1 {
+    font-family: 'Rakkas', cursive, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 55px;
+}
+
+.App {
+    text-align: center;
+}
+
+canvas#myCanvas {
+    border: 1px solid #000000;
+    box-shadow: 0 1px 4px 0 grey;
+    border-radius: 10px;
+    background-color: #F0DDE1;
+}
+
+.PatternTextHolder {
+    text-align: center;
+    padding: 70px;
+} 
+
+#patternExplainer {
+    font-family: 'Rakkas', cursive, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+}
+
+#patternResponse {
+    width: 500px;
+    height: 100px;
+    text-align: center;
+    border: 1px solid black;
+    box-shadow: 0 1px 4px 0 grey;
+    background-color: #A697A6;
+    color: #1C1F33;
+    font-family: 'Rakkas', cursive, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 50px;
+}
+
+#buttonHolder {
+    padding: 15px;
+}
+
+button {
+    background-color: salmon; 
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    width: 110px;
+    height: 60px;
+    padding: 10px;
+    border: 1px solid #D6A2AD;
+    border-radius: 5px;
+    
+}
+
+button:hover {
+    background-color: #D33F49;
+    color: white;
+}
+
+button::selection {
+    border-style: none;
+}

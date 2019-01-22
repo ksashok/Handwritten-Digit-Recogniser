@@ -1,5 +1,5 @@
 import flask
-from flask import request, jsonify
+from flask import request, jsonify, render_template
 import base64
 import numpy as np
 from PIL import Image
@@ -13,8 +13,7 @@ app = flask.Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def home():
-    return '''<h1>Home Page</h1>
-<p>Collection of APIs.</p>'''
+    return render_template('index.html')
 
 
 @app.route('/digit',methods=['POST'])
@@ -32,7 +31,8 @@ def find_digit():
     model = keras.models.load_model("conv_digit.h5")
     predict = np.argmax(model.predict(im2arr),axis=1)[0]
     print(predict)
-    return jsonify(number=str(predict))
+    number = {'0':'Zero', '1': 'One', '2':'Two', '3':'Three', '4':'Four', '5':'Five', '6':'Six', '7':'Seven', '8':"Eight", '9':'Nine'}
+    return jsonify(number=number[str(predict)])
 
 if __name__ == '__main__':
     app.run()
