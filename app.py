@@ -1,5 +1,6 @@
 import flask
 from flask import request, jsonify, render_template
+from flask_cors import CORS
 import base64
 import numpy as np
 from PIL import Image
@@ -8,6 +9,7 @@ import keras
 
 
 app = flask.Flask(__name__)
+CORS(app)
 #app.config["DEBUG"] = True
 
 

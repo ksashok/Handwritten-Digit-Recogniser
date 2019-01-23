@@ -26,4 +26,5 @@ tensorflow==1.11.0
 termcolor==1.1.0
 Werkzeug==0.14.1
 gunicorn==19.9.0
+Flask-Cors==3.0.7
 virtualenv==16.0.0
