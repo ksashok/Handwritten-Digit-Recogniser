@@ -34,7 +34,9 @@ def find_digit():
     print(predict)
     keras.backend.clear_session()
     number = {'0':'Zero', '1': 'One', '2':'Two', '3':'Three', '4':'Four', '5':'Five', '6':'Six', '7':'Seven', '8':"Eight", '9':'Nine'}
-    return jsonify(number=number[str(predict)])
+    response = jsonify(number=number[str(predict)])
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 if __name__ == '__main__':
     app.run()
