@@ -1,6 +1,6 @@
 import flask
 from flask import request, jsonify, render_template
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 import base64
 import numpy as np
 from PIL import Image
@@ -10,15 +10,18 @@ import keras
 
 app = flask.Flask(__name__)
 CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 #app.config["DEBUG"] = True
 
 
 @app.route('/', methods=['GET'])
+@cross_origin()
 def home():
     return render_template('index.html')
 
 
 @app.route('/digit',methods=['POST'])
+@cross_origin()
 def find_digit():
     request_data = request.get_json()
     string = request_data['image_url']
@@ -35,7 +38,7 @@ def find_digit():
     keras.backend.clear_session()
     number = {'0':'Zero', '1': 'One', '2':'Two', '3':'Three', '4':'Four', '5':'Five', '6':'Six', '7':'Seven', '8':"Eight", '9':'Nine'}
     response = jsonify(number=number[str(predict)])
-    response.headers.add('Access-Control-Allow-Origin', '*')
+    #response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
 if __name__ == '__main__':
